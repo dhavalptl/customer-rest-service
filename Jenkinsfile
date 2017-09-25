@@ -17,6 +17,7 @@ pipeline {
         }
         stage ('Deploy Stop & Start') {
             steps {
+                sh 'chmod 755 deploy.sh'
                 sh './deploy.sh'
             }
         }
