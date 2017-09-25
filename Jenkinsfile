@@ -27,7 +27,7 @@ pipeline {
         }
         stage ('Run Application') {
             steps {
-                sh 'nohup java -jar /Users/dhavalpatel/deploy/develop/customer-service-0.0.1-SNAPSHOT.jar'
+                sh 'nohup java -jar /Users/dhavalpatel/deploy/develop/customer-service-0.0.1-SNAPSHOT.jar &> /Users/dhavalpatel/deploy/develop/server.log &'
             }
         }
     }
