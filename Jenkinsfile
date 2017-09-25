@@ -17,7 +17,7 @@ pipeline {
         }
         stage ('Deploy Stop & Start') {
             steps {
-                sh './deploy'
+                sh './deploy.sh'
             }
         }
     }
