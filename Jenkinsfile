@@ -4,14 +4,14 @@ pipeline {
         stage ('Compile Stage') {
             steps {
                 withMaven(maven : 'maven3.5') {
-                    sh 'mvn clean'
+                    sh 'mvn clean compile'
                 }
             }
         }
         stage ('Package Stage') {
             steps {
                 withMaven(maven : 'maven3.5') {
-                    sh 'mvn package'
+                    sh 'mvn build'
                 }
             }
         }
