@@ -8,12 +8,5 @@ pipeline {
                 }
             }
         }
-        stage ('Package Stage') {
-            steps {
-                withMaven(maven : 'maven3.5') {
-                    sh 'mvn package'
-                }
-            }
-        }
     }
 }
