@@ -15,7 +15,7 @@ pipeline {
                 }
             }
         }
-        state ('Deploy Stop & Start') {
+        stage ('Deploy Stop & Start') {
             steps {
                 sh './deploy'
             }
