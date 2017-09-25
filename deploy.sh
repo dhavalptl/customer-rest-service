@@ -21,5 +21,6 @@ kill `ps -ef | grep "java -jar /Users/dhavalpatel/deploy/develop/customer-servic
 
 echo "run application"
 chmod 500 /Users/dhavalpatel/deploy/develop/customer-service-0.0.1-SNAPSHOT.jar
+nohup java -jar /Users/dhavalpatel/deploy/develop/customer-service-0.0.1-SNAPSHOT.jar &> /Users/dhavalpatel/deploy/develop/server.log &
 
-echo "deploy finish"
+echo "deploy finish & started application"

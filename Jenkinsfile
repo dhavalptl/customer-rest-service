@@ -1,33 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage ('Clean Stage') {
+        stage ('Clean Package Stage') {
             steps {
                 withMaven(maven : 'maven3.5') {
-                    sh 'mvn clean'
+                    sh 'mvn clean package'
                 }
             }
         }
-        stage ('Package Stage') {
+        stage ('Deploy, Stop and Start Application') {
             steps {
-                withMaven(maven : 'maven3.5') {
-                    sh 'mvn package'
-                }
-            }
-        }
-        stage ('Change Permission') {
-            steps {
-                sh 'chmod 755 deploy.sh'
-            }
-        }
-        stage ('Deploy and Stop') {
-            steps {
+                sh 'chmod 500 deploy.sh'
                 sh './deploy.sh'
-            }
-        }
-        stage ('Run Application') {
-            steps {
-                sh 'nohup java -jar /Users/dhavalpatel/deploy/develop/customer-service-0.0.1-SNAPSHOT.jar &> /Users/dhavalpatel/deploy/develop/server.log &'
             }
         }
     }
